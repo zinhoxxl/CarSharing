@@ -6,7 +6,7 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <fmt:setLocale value='<%=request.getParameter("language") %>'/>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <fmt:bundle basename="resourceBundle.message"> --%>
+<fmt:bundle basename="resourceBundle.message">
 <title><fmt:message key="welcome"/></title> 
 </head>
 <body>
@@ -52,7 +52,7 @@
 
 <%-- <%@ include file="footer.jsp" %> --%>
 </body>
-<%-- </fmt:bundle> --%>
+</fmt:bundle>
 </html>
 <!-- web.xml에 welcome-file-list에 페이지를 등록하면 
     welcome페이지로 사용가능 
