@@ -8,7 +8,7 @@
  Connection conn=null;
 
  try{
-	 String url="jdbc:mysql://localhost:3306/webmarketDB";
+	 String url="jdbc:mysql://localhost:3306";
 	 String user="root";
 	 String password="root"; //본인 비번 입력
 	 
