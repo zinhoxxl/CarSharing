@@ -10,7 +10,7 @@ public class DBConnection {
 	
 		String url="jdbc:mysql://localhost:3306/carsharing"; //MySQL에서 carsharing이름으로 스키마/schema 만드시고 거기에 테이블 create하시면 됩니다.
 		String user="root";
-		String password="1234";
+		String password="root";
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		conn = DriverManager.getConnection(url,user,password);
