@@ -35,7 +35,7 @@ public class MainController extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 	 //web.xml의 init-param값 읽어 처리
-		String configFile = getInitParameter("CarSharing");
+		String configFile = getInitParameter("CarSharingConfigFile");
 		System.out.println("CarSharingConfigFile:"+configFile);
 		//<문자열,문자열> 값 읽기 <- properties
 		Properties prop = new Properties();
