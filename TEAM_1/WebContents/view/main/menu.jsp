@@ -15,13 +15,13 @@
 <nav class="navbar navbar-expand navbar-dark bg-primary">
 <div class="container">
   <div class="navbar-header">
-  	<h4 class="navbar-brand" href="<c:url value="" />">CarSharing</h4>
+  	<h4><a class="navbar-brand" href="<c:url value="/welcome.jsp"/>">CarSharing</a></h4>
   </div>
   <div>
   	<ul class="navbar-nav mr-auto">
   	   <c:choose>
   	     <c:when test="${empty sessionId}"><%-- ${sessionId==null} --%>
-  	        <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">로그인</a></li>
+  	        <li class="nav-item"><a class="nav-link" href="<c:url value="./view/member/login.jsp"/>">로그인</a></li>
   	        <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">회원가입</a></li>
   	        
   	     </c:when>

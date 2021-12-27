@@ -2,29 +2,66 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>CarSharing</display-name>
   <welcome-file-list>
-    <welcome-file>./view/main/main.jsp</welcome-file>
+    <welcome-file>welcome.jsp</welcome-file>
   </welcome-file-list>
-<!--   <security-role>
+  
+<!--  <security-role>
     <description></description>
-    <role-name>admin</role-name> 관리자 아이디/servers패키지의 tomcat-users.xml에서 아이디 설정 후 여기도 동일 설정
+    <role-name>admin</role-name>
   </security-role>
-   <security-constraint>
+  <security-constraint>
     <display-name>CarSharing</display-name>
     <web-resource-collection>
       <web-resource-name>CarSharing</web-resource-name>
-      <url-pattern>추후 관리자아이디로 접근할 view페이지1</url-pattern>
-
+      <url-pattern>/view/NoticeBoard/noticeWriteForm.jsp</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <description>권한 관리자명</description>
       <role-name>admin</role-name>
     </auth-constraint>
-  </security-constraint>  -->
+  </security-constraint> -->
+  
+  <security-role>
+		<role-name>
+		<!-- role name : 역할 이름 -->
+		admin
+		</role-name>
+	</security-role>
+	<security-constraint>
+		<web-resource-collection>
+		<!-- web-resource-collection : 웹 자원에 대한 접근을 설정 -->
+			<web-resource-name>
+				<!-- 보안을 걸어줄 프로젝트(최상위 폴더) 명 -->
+				CarSharing
+			</web-resource-name>
+			<url-pattern>
+				<!-- 제약 조건을 걸어줄 파일 -->
+				/view/NoticeBoard/noticeWriteForm.jsp
+			</url-pattern>
+			<http-method>
+				<!-- 전송방식 : post or get 방식? -->
+				GET
+			</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>
+				<!-- description : 설명이 필요하다면 여기에 작성 -->
+			</description>
+			<role-name>
+				<!-- role-name : 저 파일에 접근할 수 있는 역할이름 -->
+				admin
+			</role-name>
+		</auth-constraint>
+	</security-constraint>
+  
+  
   <login-config>
     <auth-method>FORM</auth-method>
     <form-login-config>
-      <form-login-page>/login.jsp</form-login-page>
-      <form-error-page>/login_failed.jsp</form-error-page>
+      <!-- 로그인 페이지 경로 -->
+      <form-login-page>/view/member/login.jsp</form-login-page>
+      <!-- 에러 날 경우 연결될 파일 -->
+      <form-error-page>/view/login_failed.jsp</form-error-page>
     </form-login-config>
   </login-config>
   <error-page>

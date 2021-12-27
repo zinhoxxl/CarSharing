@@ -21,7 +21,7 @@
    </div>
 </div>
 <div class="container">
-   <form name="newWrite" action="./NoticeWriteAction.do"
+   <form name="newWrite" action="NoticeWriteAction.car"
       class="form-horizontal" method="post" onsubmit="return checkForm()">
       <input name="id" type="hidden" class="form-control" value="${sessionId}">
       <div class="form-group row">

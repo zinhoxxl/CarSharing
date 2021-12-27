@@ -43,7 +43,7 @@
 <title>중앙렌트카</title> 
 </head>
 <body>
-<jsp:include page="./menu.jsp"/>
+<jsp:include page="./view/main/menu.jsp"/>
 <div class="jumbotron" style="background-color: #ffffff; ">
   <div class="container">
   	<h1 class="display-3">중앙렌트카</h1>
@@ -120,7 +120,7 @@
 <!--/.Carousel Wrapper-->
 <hr>
 </div>
-<jsp:include page="./footer.jsp"/>
+<jsp:include page="./view/main/footer.jsp"/>
 
 </body>
 </html>
