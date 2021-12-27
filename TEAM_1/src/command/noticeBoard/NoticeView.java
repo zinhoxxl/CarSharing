@@ -3,9 +3,7 @@ package command.noticeBoard;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import command.MainCommand;
-
-public class exampleAction implements MainCommand{
+public class NoticeView implements ActionCommand {
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
