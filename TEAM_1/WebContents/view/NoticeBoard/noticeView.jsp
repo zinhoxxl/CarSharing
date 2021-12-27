@@ -28,9 +28,9 @@ function confirmDelete(num,pageNum,items,text){
           class="form-horizontal" method="post" >
          <input type="hidden" name="id" value="${sessionId}"><!-- request->session->application순으로 조회 -->
     <div class="form-group row">
-        <label class="col-sm-2 control-label">관리자</label>
+        <label class="col-sm-2 control-label">작성자</label>
         <div class="col-sm-3">
-            <input name="writer" class="form-control" value="${nb.writer}" disabled>
+            <input name="writer" class="form-control" value="${nb.writer}" placeholder="관리자" disabled>
         </div>
     </div>
         <div class="form-group row">

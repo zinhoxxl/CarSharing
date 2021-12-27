@@ -1,10 +1,23 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gothic+A1&family=Nanum+Pen+Script&family=Public+Sans:ital,wght@1,900&display=swap');
+     div.navbar-header{
+        font-family: 'Public Sans', sans-serif;
+     }
 
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+     ul {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    
+</style>
+
+
+<nav class="navbar navbar-expand navbar-dark bg-primary">
 <div class="container">
   <div class="navbar-header">
-  	<a class="navbar-brand" href="<c:url value="" />">홈</a>
+  	<h4 class="navbar-brand" href="<c:url value="" />">CarSharing</h4>
   </div>
   <div>
   	<ul class="navbar-nav mr-auto">
