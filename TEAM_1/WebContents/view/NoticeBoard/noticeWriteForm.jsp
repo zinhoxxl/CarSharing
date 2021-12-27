@@ -28,7 +28,7 @@
         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자  </h5>
         <div class="col-sm-2">
               <%-- ${}의 속성값은 자동 형변환처리 및 null 처리, String 인 경우 빈 문자열("")로 처리 --%>
-           <input name="writer" class="form-control" value="${writer}" style="text-align: center;" placeholder="관 리 자" disabled>
+           <input name="writer" class="form-control" value="${writer}" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
         </div>
       </div>
       <hr class="form-group-row">
@@ -44,7 +44,7 @@
       <div class="form-group row">
         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:-20;">내용  </h5>
         <div class="col-sm-8">
-           <textarea rows="5" cols="50" class="form-control" placeholder="내용을 입력하세요" name="content"></textarea>
+           <textarea rows="8" cols="50" class="form-control" placeholder="내용을 입력하세요" name="content"></textarea>
         </div>
       </div>
       <hr class="form-group-row">

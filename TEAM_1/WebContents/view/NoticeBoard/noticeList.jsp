@@ -6,6 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
+
 <script>
 function checkForm(){
 	if(${sessionScope.sessionId==null}){
@@ -15,13 +16,25 @@ function checkForm(){
 	}	
 }
 </script>
-<title>공지사항</title>
+
+<style>
+    div.jumbotron {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    h5.control-label {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    div.modal-header {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+</style>
+<title>공지사항 게시판</title>
 </head>
 <body>
 <jsp:include page="../main/menu.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #ffffff; ">
    <div class="container">
-      <h1 class="display-3">공지사항</h1>
+      <h1 class="display-3">공지사항 게시판</h1>
    </div>
 </div>
 <div class="container">
@@ -31,9 +44,9 @@ function checkForm(){
              <span class="badge badge-success">전체 ${total_record}</span>
       </div>
     </div>
-    <div style="padding-top:50px">
+    <div style="padding-top:50px;">
        <table class="table table-hover">
-            <tr>
+            <tr style="font-family: 'Do Hyeon', sans-serif;">
              <th>번호</th>
              <th>제목</th>
              <th>조회</th>

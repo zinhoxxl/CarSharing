@@ -8,11 +8,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>      
 <meta charset="UTF-8">
 <title>공지사항 내용</title>
+
 <script>
 function confirmDelete(num,pageNum,items,text){
  location.href="./NoticeDeleteAction.car?num="+num+"&pageNum="+pageNum+"&items="+items+"&text="+text;
 }
 </script>
+
 <style>
     div.jumbotron {
         font-family: 'Do Hyeon', sans-serif;
@@ -20,7 +22,11 @@ function confirmDelete(num,pageNum,items,text){
     h5.control-label {
         font-family: 'Do Hyeon', sans-serif;
     }
+    div.modal-header {
+        font-family: 'Do Hyeon', sans-serif;
+    }
 </style>
+
 </head>
 <body>
 <jsp:include page="../main/menu.jsp"/>
@@ -36,23 +42,23 @@ function confirmDelete(num,pageNum,items,text){
           class="form-horizontal" method="post" >
          <input type="hidden" name="id" value="${sessionId}"><!-- request->session->application순으로 조회 -->
     <div class="form-group row">
-        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자</h5>
-        <div class="col-sm-3">
-            <input name="writer" class="form-control" value="${writer}" style="text-align: center;" placeholder="관 리 자" disabled>
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자  </h5>
+        <div class="col-sm-2">
+            <input name="writer" class="form-control" value="${writer}" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
         </div>
     </div>
     <hr class="form-group-row">
         <div class="form-group row">
-        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">제목</h5>
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">제목  </h5>
         <div class="col-sm-8">
             <input name="subject" class="form-control" value="${nb.subject}">
         </div>
     </div>
     <hr class="form-group-row">
         <div class="form-group row">
-        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:-20;">내용</h5>
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:-20;">내용  </h5>
         <div class="col-sm-8" style="word-break:break-all;">
-            <textarea rows="5" cols="50" name="content"
+            <textarea rows="8" cols="50" name="content"
                class="form-control">${nb.content}</textarea>
         </div>
     </div>
@@ -65,7 +71,7 @@ function confirmDelete(num,pageNum,items,text){
 
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">삭제
         </button>
-             <input type="submit" class="btn btn-success" value="수정">
+             <input type="submit" class="btn btn-info" value="수정">
             </c:if>
             <a href="./NoticeListAction.car?pageNum=${page}&items=${items}&text=${text}" class="btn btn-primary">목록</a>
         </div>
