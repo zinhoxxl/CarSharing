@@ -6,13 +6,11 @@
      div.navbar-header{
         font-family: 'Public Sans', sans-serif;
      }
-
      ul {
         font-family: 'Do Hyeon', sans-serif;
-    }
+     }
     
 </style>
-
 
 <nav class="navbar navbar-expand navbar-dark bg-primary">
 <div class="container">
