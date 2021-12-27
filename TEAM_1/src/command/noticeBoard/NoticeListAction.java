@@ -1,6 +1,7 @@
 package command.noticeBoard;
 
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,8 +9,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mvc.model.BoardDAO;
-import mvc.model.BoardDTO;
+import model.noticeBoard.NoticeDAO;
+import model.noticeBoard.NoticeDTO;
+
 
 public class NoticeListAction implements Command{
 	//게시글 페이지당 조회결과 건수 상수 선언
@@ -19,8 +21,8 @@ public class NoticeListAction implements Command{
 			    throws Exception {
 		//등록된 글 목록 가져오기
 			//DB억세스 객체 생성
-			BoardDAO dao = BoardDAO.getInstance();
-			List<BoardDTO> boardList = new ArrayList<BoardDTO>();
+			NoticeDAO dao = NoticeDAO.getInstance();
+			List<NoticeDTO> noticeList = new ArrayList<NoticeDTO>();
 			//게시판 이동시 첫 페이지 설정
 			int pageNum=1;
 			int limit = LISTCOUNT;//초기값 5
@@ -35,8 +37,8 @@ public class NoticeListAction implements Command{
 					
 			//DB로 부터 페이지당 갯수 별로 리스트 생성
 			//boardList = dao.getBoardList(pageNum, limit);
-			boardList = dao.getBoardList(pageNum, limit, items, text);
-			System.out.println("boardList건수:"+boardList.size());
+			noticeList = dao.getNoticeList(pageNum, limit, items, text);
+			System.out.println("noticeList건수 : "+noticeList.size());
 			//int total_record = dao.getListCount();
 			int total_record = dao.getListCount(items, text);
 			
@@ -64,11 +66,11 @@ public class NoticeListAction implements Command{
 			if(endPage > finalPage) endPage = finalPage;
 			
 			
-			//list.jsp(view페이지로 결과 전달)
+			//noticeList.jsp(view페이지로 결과 전달)
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("total_page", total_page);
 			request.setAttribute("total_record", total_record);
-			request.setAttribute("boardlist", boardList);
+			request.setAttribute("noticeList", noticeList);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			request.setAttribute("finalPage",finalPage);
@@ -76,7 +78,7 @@ public class NoticeListAction implements Command{
 			request.setAttribute("text", text);
 
 		 //이동할 view페이지 경로
-		 return "./board/list.jsp";
+		 return "./view/NoticeBoard/noticeList.jsp";
 	}
 
 }

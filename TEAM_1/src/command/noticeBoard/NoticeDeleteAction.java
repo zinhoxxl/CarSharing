@@ -1,9 +1,11 @@
 package command.noticeBoard;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpServletResponse;
 
-import mvc.model.BoardDAO;
+import model.noticeBoard.NoticeDAO;
+
 
 public class NoticeDeleteAction implements Command{
 	@Override
@@ -17,8 +19,8 @@ public class NoticeDeleteAction implements Command{
 		 String text = request.getParameter("text");
 		 
 	   	 //DB억세스 객체 생성
-	   	 BoardDAO dao = BoardDAO.getInstance();
-	   	 dao.deleteBoard(num);
+	   	 NoticeDAO dao = NoticeDAO.getInstance();
+	   	 dao.deleteNotice(num);
 	   	 
 			//상세 글정보를 상세 페이지로 전달 위해 request에 세팅
 			request.setAttribute("num", num);//글번호-autoBoxing(기본타입-래퍼객체로 자동형변환)
@@ -26,7 +28,7 @@ public class NoticeDeleteAction implements Command{
 			request.setAttribute("items", items);//검색 타입
 			request.setAttribute("text", text);//검색어
 		
-		return "/BoardListAction.do";
+		return "/NoticeListAction.car";
 	}
 
 }
