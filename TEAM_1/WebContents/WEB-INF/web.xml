@@ -38,10 +38,6 @@
 				<!-- 제약 조건을 걸어줄 파일 -->
 				/view/NoticeBoard/noticeWriteForm.jsp
 			</url-pattern>
-			<http-method>
-				<!-- 전송방식 : post or get 방식? -->
-				GET
-			</http-method>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>
