@@ -13,10 +13,18 @@ function confirmDelete(num,pageNum,items,text){
  location.href="./NoticeDeleteAction.car?num="+num+"&pageNum="+pageNum+"&items="+items+"&text="+text;
 }
 </script>
+<style>
+    div.jumbotron {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    h5.control-label {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+</style>
 </head>
 <body>
 <jsp:include page="../main/menu.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #ffffff; ">
    <div class="container">
      <h1 class="display-3">공지사항</h1>
    </div>
@@ -28,24 +36,27 @@ function confirmDelete(num,pageNum,items,text){
           class="form-horizontal" method="post" >
          <input type="hidden" name="id" value="${sessionId}"><!-- request->session->application순으로 조회 -->
     <div class="form-group row">
-        <label class="col-sm-2 control-label">작성자</label>
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자</h5>
         <div class="col-sm-3">
-            <input name="writer" class="form-control" value="${nb.writer}" placeholder="관리자" disabled>
+            <input name="writer" class="form-control" value="${writer}" style="text-align: center;" placeholder="관 리 자" disabled>
         </div>
     </div>
+    <hr class="form-group-row">
         <div class="form-group row">
-        <label class="col-sm-2 control-label">제목</label>
-        <div class="col-sm-3">
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">제목</h5>
+        <div class="col-sm-8">
             <input name="subject" class="form-control" value="${nb.subject}">
         </div>
     </div>
+    <hr class="form-group-row">
         <div class="form-group row">
-        <label class="col-sm-2 control-label">내용</label>
+        <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:-20;">내용</h5>
         <div class="col-sm-8" style="word-break:break-all;">
             <textarea rows="5" cols="50" name="content"
                class="form-control">${nb.content}</textarea>
         </div>
     </div>
+    <hr class="form-group-row">
     <div class="form-group row">
         <div class="col-sm-offset-2 col-sm-10">
             <c:set var="userId" value="${nb.memberId}" />
@@ -60,7 +71,6 @@ function confirmDelete(num,pageNum,items,text){
         </div>
     </div>
     </form>
-    <hr>
 </div>
 <jsp:include page="../main/footer.jsp"/>
 
