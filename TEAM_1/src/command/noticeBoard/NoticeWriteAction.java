@@ -1,55 +1,45 @@
 package command.noticeBoard;
 
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.noticeBoard.NoticeDAO;
 import model.noticeBoard.NoticeDTO;
-import mvc.bbs.model.BbsDAO;
-import mvc.bbs.model.BbsDTO;
 
-//신규글 등록 & 답변글 등록 둘 다 처리 
-public class NoticeWriteAction implements ActionCommand {
+public class NoticeWriteAction implements Command{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		 
-		 String pageNum=request.getParameter("pageNum");
-		 String items=request.getParameter("items");
-		 String text = request.getParameter("text");
-	int ref=
-	    request.getParameter("ref").equals("")?0:Integer.parseInt(request.getParameter("ref"));
-	int re_step=
-	    request.getParameter("re_step").equals("")?0:Integer.parseInt(request.getParameter("re_step"));
-	int re_level=
-        request.getParameter("re_level").equals("")?0:Integer.parseInt(request.getParameter("re_level"));
-		
-		String writer =request.getParameter("writer");
-		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
-		String reg_date =request.getParameter("reg_date");
-		String password =request.getParameter("password");
-		String ip = request.getRemoteAddr();
-		
-		NoticeDTO nb = new NoticeDTO();
-		nb.setWriter(writer);
-		nb.setSubject(subject);
-		nb.setContent(content);
-		nb.setPassword(password);
-		nb.setIp(ip);
-		//원글의 글 그룹, 스텝,레벨 세팅
-		nb.setRef(ref);
-		nb.setRe_step(re_step);
-		nb.setRe_level(re_level);
-		
-		//글 등록 처리
-		NoticeDAO dao = NoticeDAO.getInstance();
-		
-		System.out.println("ref:"+ref+",re_step:"+re_step+",re_level:"+re_level);
-		
-		dao.insertNotice(nb);
-		
-		//글 등록 후 리스트로 이동처리
+		//새로운 글 등록하기
+			//DB저장 객체 생성
+			NoticeDAO dao = NoticeDAO.getInstance();
+			//request로 부터 파라미터 이름에 해당하는 값 얻기
+			String memberId = request.getParameter("memberId");
+			String writer = request.getParameter("writer");
+			String subject = request.getParameter("subject");
+			String content = request.getParameter("content");
+			
+			//등록일자 정보 생성
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd(HH:mm:ss)");
+			String reg_date = formatter.format(new Date());
+			String IP = request.getRemoteAddr();
+			
+			//insertBoard()메소드에 넘길 객체 생성 후, 속성에 값 설정
+			NoticeDTO nb = new NoticeDTO();
+			nb.setMemberId(memberId);
+			nb.setWriter(writer);
+			nb.setSubject(subject);
+			nb.setContent(content);
+			nb.setReadCount(0);
+			nb.setReg_date(reg_date);
+			nb.setIP(IP);
+			
+			//DAO에서 DB에 저장하기 위해 메소드 호출
+			dao.insertNotice(nb);
+
 		return "/NoticeListAction.car";
 	}
-
 }

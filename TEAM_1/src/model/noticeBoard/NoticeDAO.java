@@ -63,7 +63,7 @@ public class NoticeDAO {
 	  
 	  
 	//db에 저장하는 메소드
-	  public void insertBoard(NoticeDTO board) {
+	  public void insertNotice(NoticeDTO board) {
 		  Connection conn=null;
 		  PreparedStatement pstmt=null;
 		  
@@ -102,7 +102,7 @@ public class NoticeDAO {
 	  
 	  
 	//board테이블의 레코드 가져오기
-	  public List<NoticeDTO> getBoardList(int pageNum, int limit, String items, String text){
+	  public List<NoticeDTO> getNoticeList(int pageNum, int limit, String items, String text){
 		  Connection conn=null;
 		  PreparedStatement pstmt=null;
 		  ResultSet rs = null;
@@ -110,9 +110,9 @@ public class NoticeDAO {
 		  String sql="";
 		
 		  if((items==null && text==null)||( items.length()==0 || text.length()==0))//검색 조건이 파라미터로 넘어오지 않은 경우
-		   sql ="select * from board order by num desc";
+		   sql ="select * from NoticeBoard order by num desc";
 		  else//검색 조건이 파라미터로 넘어온 경우
-		   sql = "select * from board where "+items+" like '%"+text+"%' order by num desc";
+		   sql = "select * from NoticeBoard where "+items+" like '%"+text+"%' order by num desc";
 		  
 		  System.out.println("sql:"+sql);
 		  
@@ -167,7 +167,7 @@ public class NoticeDAO {
 				  }
 			  }
 		  return null;
-	  }//getBoardList()메소드 끝.
+	  }//getNoticeList()메소드 끝.
 	  
 	  
 	  
@@ -211,8 +211,8 @@ public class NoticeDAO {
 	  
 	 
 	//글 번호에 해당하는 글 정보 얻기 메소드
-	  public NoticeDTO  getBoardByNum(int num,int pageNum){
-		  NoticeDTO board = new NoticeDTO();
+	  public NoticeDTO  getNoticeByNum(int num,int pageNum){
+		  NoticeDTO nb = new NoticeDTO();
 	 	 Connection conn=null;
 	 	 PreparedStatement pstmt=null;
 	 	 ResultSet rs = null;
@@ -226,14 +226,14 @@ public class NoticeDAO {
 	 		    rs=pstmt.executeQuery();
 	 		    
 	 		    if(rs.next()) {
-	 		    	board.setNum(rs.getInt(1));
-	 		    	board.setMemberId(rs.getString(2));
-	 		    	board.setWriter(rs.getString(3));
-	 		    	board.setSubject(rs.getString(4));
-	 		    	board.setContent(rs.getString(5));
-	 		    	board.setReadCount(rs.getInt(6));
-	 		    	board.setReg_date(rs.getString(7));
-	 		    	board.setIP(rs.getString(8));
+	 		    	nb.setNum(rs.getInt(1));
+	 		    	nb.setMemberId(rs.getString(2));
+	 		    	nb.setWriter(rs.getString(3));
+	 		    	nb.setSubject(rs.getString(4));
+	 		    	nb.setContent(rs.getString(5));
+	 		    	nb.setReadCount(rs.getInt(6));
+	 		    	nb.setReg_date(rs.getString(7));
+	 		    	nb.setIP(rs.getString(8));
 	 		    }
 	 	 }catch(Exception e) {
 	 		 System.out.println("에러:"+e);// e.toString() 자동 호출
@@ -245,14 +245,14 @@ public class NoticeDAO {
 	 			  throw new RuntimeException(e.getMessage());
 	 		  }
 	 	  }
-	 	return board; 
-	  }//getBoardByNum() 끝.
+	 	return nb; 
+	  }//getNoticeByNum() 끝.
 	  
 	  
 	  
 	  
 	//글 내용 수정 처리
-	  public void updateBoard(NoticeDTO board) {
+	  public void updateNotice(NoticeDTO notice) {
 	  	  Connection conn=null;
 	  	  PreparedStatement pstmt=null;
 	  	  
@@ -263,13 +263,13 @@ public class NoticeDAO {
 	  		    conn=DBConnection.getConnection();
 	  		    pstmt=conn.prepareStatement(sql);
 	  		    //값 설정
-	  		    pstmt.setString(1, board.getMemberId());
-	  		    pstmt.setString(2, board.getWriter());
-	  			pstmt.setString(3, board.getSubject());
-	  			pstmt.setString(4, board.getContent());
-	  			pstmt.setString(5, board.getReg_date());
-	  			pstmt.setString(6, board.getIP());
-	  			pstmt.setInt(7, board.getNum());
+	  		    pstmt.setString(1, notice.getMemberId());
+	  		    pstmt.setString(2, notice.getWriter());
+	  			pstmt.setString(3, notice.getSubject());
+	  			pstmt.setString(4, notice.getContent());
+	  			pstmt.setString(5, notice.getReg_date());
+	  			pstmt.setString(6, notice.getIP());
+	  			pstmt.setInt(7, notice.getNum());
 	  			
 	  			//db저장처리
 	  			pstmt.executeUpdate();		  
@@ -283,7 +283,7 @@ public class NoticeDAO {
 	  			  throw new RuntimeException(e.getMessage());
 	  		  }
 	  	  }
-	  }//updateBoard()끝.
+	  }//updateNotice()끝.
 	  
 	  
 	  
@@ -313,7 +313,7 @@ public class NoticeDAO {
 	  
 	  
 	  
-	  public void deleteBoard(int num){
+	  public void deleteNotice(int num){
 			Connection conn=null;
 			PreparedStatement pstmt=null;
 			String sql="delete from NoticeBoard where num=?";
@@ -341,6 +341,6 @@ public class NoticeDAO {
 			  }
 		 }
 			
-		}//deleteBoard()끝.
+		}//deleteNotice()끝.
 	
 }

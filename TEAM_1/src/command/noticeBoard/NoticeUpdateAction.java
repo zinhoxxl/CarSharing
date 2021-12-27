@@ -1,59 +1,54 @@
 package command.noticeBoard;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.noticeBoard.NoticeDAO;
-import model.noticeBoard.NoticeDTO;
-import mvc.bbs.model.BbsDAO;
-import mvc.bbs.model.BbsDTO;
+import mvc.model.BoardDAO;
+import mvc.model.BoardDTO;
 
-public class NoticeUpdateAction implements ActionCommand {
-
+public class NoticeUpdateAction implements Command{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		 String pageNum=request.getParameter("pageNum");
-		 String items=request.getParameter("items");
+		//글 수정 처리
+		 //파라미터로 넘어온 값 얻기
+		 int num = Integer.parseInt(request.getParameter("num"));
+		 int pageNum =Integer.parseInt(request.getParameter("pageNum"));
+		 //검색조회 파라미터 얻기
+		 String items =request.getParameter("items");
 		 String text = request.getParameter("text");
-	int ref=
-	    request.getParameter("ref").equals("")?0:Integer.parseInt(request.getParameter("ref"));
-	int re_step=
-	    request.getParameter("re_step").equals("")?0:Integer.parseInt(request.getParameter("re_step"));
-	int re_level=
-        request.getParameter("re_level").equals("")?0:Integer.parseInt(request.getParameter("re_level"));
+		 
+		 //DB억세스 객체 생성
+		 BoardDAO dao = BoardDAO.getInstance();
+		 
+		 //BoardDTO객체 생성
+		 BoardDTO board = new BoardDTO();
+		 board.setId(request.getParameter("id"));
+		 board.setNum(num);
+		 board.setName(request.getParameter("name"));
+		 board.setSubject(request.getParameter("subject"));
+		 board.setContent(request.getParameter("content"));
+		 
+		 //등록(수정)일자 변경
+		 SimpleDateFormat formatter =new SimpleDateFormat("yyyy/MM/dd(HH:mm:ss)");
+		 String regist_day = formatter.format(new Date());
+		 
+		 board.setRegist_day(regist_day);
+		 board.setIp(request.getRemoteAddr());
 		
-	    int num = Integer.parseInt(request.getParameter("num"));
-		String writer =request.getParameter("writer");
-		String subject = request.getParameter("subject");
-		String content = request.getParameter("content");
-		String reg_date =request.getParameter("reg_date");
-		String password =request.getParameter("password");
-		String ip = request.getRemoteAddr();
+		 //수정 메소드 호출
+		 dao.updateBoard(board);
+		 
+			//상세 글정보를 상세 페이지로 전달 위해 request에 세팅
+			request.setAttribute("num", num);//글번호-autoBoxing(기본타입-래퍼객체로 자동형변환)
+			request.setAttribute("page", pageNum);//페이지 번호
+			request.setAttribute("board", board);//글 정보
+			request.setAttribute("items", items);//검색 타입
+			request.setAttribute("text", text);//검색어
 		
-		NoticeDTO nb = new NoticeDTO();
-		nb.setNum(num);
-		nb.setWriter(writer);
-		nb.setSubject(subject);
-		nb.setContent(content);
-		nb.setPassword(password);
-		nb.setIp(ip);
-		//원글의 글 그룹, 스텝,레벨 세팅
-		nb.setRef(ref);
-		nb.setRe_step(re_step);
-		nb.setRe_level(re_level);
-		
-		System.out.println(nb.getRef());
-		System.out.println(nb.getRe_step());
-		System.out.println(nb.getRe_level());
-		
-		//글 등록 처리
-		NoticeDAO dao = NoticeDAO.getInstance();
-		
-		System.out.println("ref:"+ref+",re_step:"+re_step+",re_level:"+re_level);
-		
-		dao.updateNotice(nb);
-		
-		return "/NoticeListAction.car";
+		return "/BoardListAction.do";
 	}
 
 }
