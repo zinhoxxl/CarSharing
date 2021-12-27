@@ -2,6 +2,7 @@ package command.noticeBoard;
 
 import java.text.SimpleDateFormat;
 
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,11 +10,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.MainCommand;
 import model.noticeBoard.NoticeDAO;
 import model.noticeBoard.NoticeDTO;
 
 
-public class NoticeListAction implements Command{
+public class NoticeListAction implements MainCommand{
 	//게시글 페이지당 조회결과 건수 상수 선언
 	static final int LISTCOUNT = 10;
 	@Override

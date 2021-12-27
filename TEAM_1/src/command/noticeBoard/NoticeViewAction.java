@@ -4,10 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
+import command.MainCommand;
 import model.noticeBoard.NoticeDAO;
 import model.noticeBoard.NoticeDTO;
 
-public class NoticeViewAction implements Command{
+public class NoticeViewAction implements MainCommand{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//상세 글 페이지 가져오기

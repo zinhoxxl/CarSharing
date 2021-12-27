@@ -4,10 +4,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
+import command.MainCommand;
 import model.noticeBoard.NoticeDAO;
 
 
-public class NoticeDeleteAction implements Command{
+public class NoticeDeleteAction implements MainCommand{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//선택글 삭제 처리

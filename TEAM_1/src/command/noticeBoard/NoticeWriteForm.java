@@ -5,9 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import command.MainCommand;
 import model.noticeBoard.NoticeDAO;
 
-public class NoticeWriteForm implements Command{
+public class NoticeWriteForm implements MainCommand{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		 //세션으로 부터 로그인 아이디 얻기

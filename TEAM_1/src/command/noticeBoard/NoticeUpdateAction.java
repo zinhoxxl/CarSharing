@@ -7,11 +7,12 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.MainCommand;
 import model.noticeBoard.NoticeDAO;
 import model.noticeBoard.NoticeDTO;
 
 
-public class NoticeUpdateAction implements Command{
+public class NoticeUpdateAction implements MainCommand{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//글 수정 처리
