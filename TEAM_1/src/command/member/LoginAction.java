@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import command.MainCommand;
 
-public class exampleAction implements MainCommand{
+public class LoginAction implements MainCommand{
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
