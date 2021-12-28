@@ -117,7 +117,16 @@ function checkForm(){
                 <input type="submit" id="btnAdd" class="btn btn-primary" value="검색">
          </td>
          <td width="100%" align="right">
+          <%
+           
+           String sessionId = (String)session.getAttribute("sessionId");
+           if(sessionId==null || sessionId.length()==0) sessionId="";
+           if(sessionId.equals("admin")){
+         %> 
         <a href="#" onclick="checkForm(); return false;" class="btn btn-primary">&laquo;글쓰기</a>
+          <%
+           }
+         %> 
          </td>
         </tr>
       </table>
