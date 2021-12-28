@@ -28,9 +28,7 @@ public class NoticeUpdateAction implements MainCommand{
 		 
 		 //BoardDTO객체 생성
 		 NoticeDTO nb = new NoticeDTO();
-		 nb.setMemberId(request.getParameter("memberId"));
 		 nb.setNum(num);
-		 nb.setWriter(request.getParameter("writer"));
 		 nb.setSubject(request.getParameter("subject"));
 		 nb.setContent(request.getParameter("content"));
 		 

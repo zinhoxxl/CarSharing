@@ -3,8 +3,6 @@ package model.noticeBoard;
 public class NoticeDTO {
 
 	private int num; //자동 생성
-	private String memberId; //로그인 아이디
-	private String writer; //글쓴이
 	private String subject; //글 제목
 	private String content; //글 내용
 	private int readCount; //글 읽은 횟수
@@ -18,18 +16,6 @@ public class NoticeDTO {
 	}
 	public void setNum(int num) {
 		this.num = num;
-	}
-	public String getMemberId() {
-		return memberId;
-	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
-	public String getWriter() {
-		return writer;
-	}
-	public void setWriter(String writer) {
-		this.writer = writer;
 	}
 	public String getSubject() {
 		return subject;

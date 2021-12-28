@@ -41,7 +41,7 @@ function confirmDelete(num,pageNum,items,text){
     <div class="form-group row">
         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자  </h5>
         <div class="col-sm-2">
-            <input name="writer" class="form-control" value="${writer}" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
+            <input name="writer" class="form-control" value="관 리 자" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
         </div>
     </div>
     <hr class="form-group-row">
@@ -62,7 +62,7 @@ function confirmDelete(num,pageNum,items,text){
     <hr class="form-group-row">
     <div class="form-group row">
         <div class="col-sm-offset-2 col-sm-10">
-            <c:set var="userId" value="${nb.memberId}" />
+            <c:set var="userId" value="${sessionId}" />
             <c:if test="${sessionId==userId}"><!-- 작성자와 로그인 아이디가 같은 경우 버튼 보이기  -->
               <p>
 

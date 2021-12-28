@@ -18,8 +18,6 @@ public class NoticeWriteAction implements MainCommand{
 			//DB저장 객체 생성
 			NoticeDAO dao = NoticeDAO.getInstance();
 			//request로 부터 파라미터 이름에 해당하는 값 얻기
-			String memberId = request.getParameter("memberId");
-			String writer = request.getParameter("writer");
 			String subject = request.getParameter("subject");
 			String content = request.getParameter("content");
 			
@@ -30,8 +28,6 @@ public class NoticeWriteAction implements MainCommand{
 			
 			//insertBoard()메소드에 넘길 객체 생성 후, 속성에 값 설정
 			NoticeDTO nb = new NoticeDTO();
-			nb.setMemberId(memberId);
-			nb.setWriter(writer);
 			nb.setSubject(subject);
 			nb.setContent(content);
 			nb.setReadCount(0);
