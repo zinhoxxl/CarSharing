@@ -33,14 +33,14 @@
    </div>
 </div>
 <div class="container">
-   <form name="newWrite" action="NoticeWriteAction.car"
+   <form name="newWrite" action="./NoticeWriteAction.car"
       class="form-horizontal" method="post" onsubmit="return checkForm()">
-      <input name="id" type="hidden" class="form-control" value="${sessionId}">
+      <input name="memberId" type="hidden" class="form-control" value="${sessionId}">
       <div class="form-group row">
         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:auto;">작성자  </h5>
         <div class="col-sm-2">
               <%-- ${}의 속성값은 자동 형변환처리 및 null 처리, String 인 경우 빈 문자열("")로 처리 --%>
-           <input name="writer" class="form-control" value="${writer}" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
+           <input name="writer" class="form-control" value="관 리 자" style="text-align: center; font-family: 'Do Hyeon', sans-serif;" placeholder="관 리 자" disabled>
         </div>
       </div>
       <hr class="form-group-row">

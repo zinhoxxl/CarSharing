@@ -28,13 +28,11 @@ public class NoticeWriteForm implements MainCommand{
 	//인증된 사용자명 얻기
 	private void requestLoginName(HttpServletRequest request) {
         //파라미터로 넘어온 request의 id에 해당하는 값 얻기
-		String memberId = request.getParameter("memberId");
+		String sessionId = request.getParameter("sessionId");
 		
-		//DB에서 memberId에 해당하는 writer정보 얻기
 		NoticeDAO dao = NoticeDAO.getInstance();
-		String writer = dao.getLoginNameById(memberId);//id에 해당하는 name 얻기메소드
 		
-		request.setAttribute("writer", writer);
+		request.setAttribute("writer", sessionId);
 	}
 
 }

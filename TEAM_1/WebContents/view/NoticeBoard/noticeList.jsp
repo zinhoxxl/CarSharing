@@ -9,7 +9,7 @@ function checkForm(){
 	if(${sessionScope.sessionId==null}){
 		$('#myModal').modal('show');
 	}else{
-		location.href="/NoticeWriteForm.car?id=${sessionScope.sessionId}";
+		location.href="./NoticeWriteForm.car?id=${sessionScope.sessionId}";
 	}	
 }
 </script>
@@ -46,19 +46,17 @@ function checkForm(){
             <tr style="font-family: 'Do Hyeon', sans-serif;">
              <th>번호</th>
              <th>제목</th>
-             <th>조회</th>
              <th>작성일</th>
-             <th>글쓴이</th>
+             <th>조회</th>
             </tr>
      
    <c:if test="${not empty noticeList }">
      <c:forEach items="${noticeList}"  var="notice">          
         <tr>
          <td>${notice.num}</td>
-         <td><a href="./NoticeViewAction.car?num=${notice.num}&pageNum=${pageNum}&items=${items}&text=${text}">${notice.subject}</a></td>
-         <td>${notice.readCount}</td>
+         <td style="font-family: 'Do Hyeon', sans-serif;"><a href="./NoticeViewAction.car?num=${notice.num}&pageNum=${pageNum}&items=${items}&text=${text}">${notice.subject}</a></td>
          <td>${notice.reg_date}</td>
-         <td>${notice.writer}</td>
+         <td>${notice.readCount}</td>
         </tr>        	    	       
       </c:forEach>
    </c:if>  

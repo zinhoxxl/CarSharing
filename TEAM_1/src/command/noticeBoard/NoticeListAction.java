@@ -78,6 +78,7 @@ public class NoticeListAction implements MainCommand{
 			request.setAttribute("finalPage",finalPage);
 			request.setAttribute("items", items);
 			request.setAttribute("text", text);
+			
 
 		 //이동할 view페이지 경로
 		 return "./view/NoticeBoard/noticeList.jsp";

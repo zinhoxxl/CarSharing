@@ -33,7 +33,7 @@ public class NoticeViewAction implements MainCommand{
 			request.setAttribute("items", items);//검색 타입
 			request.setAttribute("text", text);//검색어
 
-		return "/BoardView.do";
+		return "/NoticeView.car";
 	}
 
 }

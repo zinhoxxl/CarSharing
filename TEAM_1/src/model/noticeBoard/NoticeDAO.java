@@ -23,43 +23,7 @@ public class NoticeDAO {
 	  }
 	
 	  
-	//Mysql의 회원정보 얻기
-	  public String getLoginNameById(String id) {
-		  Connection conn=null;
-		  PreparedStatement pstmt=null;
-		  ResultSet rs=null;
-		  
-		  String name=null;
-		  String sql="select * from member where id=?";
-		  
-		  try {
-			    //Mysql 접속용 DBConnection객체 
-			    conn=DBConnection.getConnection();
-			    pstmt=conn.prepareStatement(sql);
-			    pstmt.setString(1, id); 
-			
-			    rs=pstmt.executeQuery();
-			    
-			    if(rs.next()) {
-			    	name=rs.getString("name");//rs.getString(칼럼명)
-			    }
-			    return name;//값을 db에서 얻어왔으면 name을 리턴, 아니면 null값 그대로 리턴.
-		  }catch(Exception e) {
-			  System.out.println("에러:"+e);
-		  }finally {
-			  try {
-				    if(rs!=null) rs.close(); if(pstmt!=null) pstmt.close();
-				    if(conn!=null)conn.close();
-			  }catch(Exception e) {
-				  throw new RuntimeException(e.getMessage());
-			  }
-		  }
-		return null;  
-	  }
-	  
-	  
-	  
-	  
+	
 	  
 	  
 	//db에 저장하는 메소드
@@ -68,21 +32,19 @@ public class NoticeDAO {
 		  PreparedStatement pstmt=null;
 		  
 		  String name=null;
-		  String sql = "insert into NoticeBoard(memberId, writer, subject, content, readCount, reg_date, IP) "
-		  		     + " values(?,?,?,?,?,?,?)";
+		  String sql = "insert into NoticeBoard(subject, content, readCount, reg_date, IP) "
+		  		     + " values(?,?,?,?,?)";
 		  
 		  try {
 			    //db연결
 			    conn=DBConnection.getConnection();
 			    pstmt=conn.prepareStatement(sql);
 			    //값 설정
-			    pstmt.setString(1,board.getMemberId());
-			    pstmt.setString(2, board.getWriter());
-				pstmt.setString(3, board.getSubject());
-				pstmt.setString(4, board.getContent());
-				pstmt.setInt(5, board.getReadCount());
-				pstmt.setString(6, board.getReg_date());
-				pstmt.setString(7, board.getIP());
+				pstmt.setString(1, board.getSubject());
+				pstmt.setString(2, board.getContent());
+				pstmt.setInt(3, board.getReadCount());
+				pstmt.setString(4, board.getReg_date());
+				pstmt.setString(5, board.getIP());
 				//db저장처리
 				pstmt.executeUpdate();		  
 		  }catch(Exception e) {
@@ -135,20 +97,18 @@ public class NoticeDAO {
 			    rs = pstmt.executeQuery();
 			    while(rs.absolute(index)) {
 			    	//게시글 객체 생성
-			    	NoticeDTO board = new NoticeDTO();
+			    	NoticeDTO nb = new NoticeDTO();
 			    	//조회된 레코드로부터 속성값 설정
-			    	board.setNum(rs.getInt("num"));
+			    	nb.setNum(rs.getInt("num"));
 			    	System.out.println("글번호:"+rs.getInt("num"));
-			    	board.setMemberId(rs.getString("memberId"));
-			    	board.setWriter(rs.getString("writer"));
-			    	board.setSubject(rs.getString("subject"));
-			    	board.setContent(rs.getString("content"));
-			    	board.setReadCount(rs.getInt("readCount"));
-			    	board.setReg_date(rs.getString("reg_date"));
-			    	board.setIP(rs.getString("IP"));
+			    	nb.setSubject(rs.getString("subject"));
+			    	nb.setContent(rs.getString("content"));
+			    	nb.setReadCount(rs.getInt("readCount"));
+			    	nb.setReg_date(rs.getString("reg_date"));
+			    	nb.setIP(rs.getString("IP"));
 			    	
 			    	//리스트에 추가하기
-			    	list.add(board);
+			    	list.add(nb);
 			    	
 			    	//현재 페이지에 나타날범위 내이면 index증가
 			    	if(index<(start + limit) && index <=total_record) index++;
@@ -227,13 +187,11 @@ public class NoticeDAO {
 	 		    
 	 		    if(rs.next()) {
 	 		    	nb.setNum(rs.getInt(1));
-	 		    	nb.setMemberId(rs.getString(2));
-	 		    	nb.setWriter(rs.getString(3));
-	 		    	nb.setSubject(rs.getString(4));
-	 		    	nb.setContent(rs.getString(5));
-	 		    	nb.setReadCount(rs.getInt(6));
-	 		    	nb.setReg_date(rs.getString(7));
-	 		    	nb.setIP(rs.getString(8));
+	 		    	nb.setSubject(rs.getString(2));
+	 		    	nb.setContent(rs.getString(3));
+	 		    	nb.setReadCount(rs.getInt(4));
+	 		    	nb.setReg_date(rs.getString(5));
+	 		    	nb.setIP(rs.getString(6));
 	 		    }
 	 	 }catch(Exception e) {
 	 		 System.out.println("에러:"+e);// e.toString() 자동 호출
@@ -256,20 +214,18 @@ public class NoticeDAO {
 	  	  Connection conn=null;
 	  	  PreparedStatement pstmt=null;
 	  	  
-	  	  String sql = "update NoticeBoard set memberId=?, writer=?, subject=?, content=?, reg_date=?, ip=? where num=?";
+	  	  String sql = "update NoticeBoard set subject=?, content=?, reg_date=?, ip=? where num=?";
 	  	  
 	  	  try {
 	  		    //db연결
 	  		    conn=DBConnection.getConnection();
 	  		    pstmt=conn.prepareStatement(sql);
 	  		    //값 설정
-	  		    pstmt.setString(1, notice.getMemberId());
-	  		    pstmt.setString(2, notice.getWriter());
-	  			pstmt.setString(3, notice.getSubject());
-	  			pstmt.setString(4, notice.getContent());
-	  			pstmt.setString(5, notice.getReg_date());
-	  			pstmt.setString(6, notice.getIP());
-	  			pstmt.setInt(7, notice.getNum());
+	  			pstmt.setString(1, notice.getSubject());
+	  			pstmt.setString(2, notice.getContent());
+	  			pstmt.setString(3, notice.getReg_date());
+	  			pstmt.setString(4, notice.getIP());
+	  			pstmt.setInt(5, notice.getNum());
 	  			
 	  			//db저장처리
 	  			pstmt.executeUpdate();		  
