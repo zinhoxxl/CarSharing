@@ -22,20 +22,19 @@
   </security-constraint> -->
   
   <security-role>
-		<role-name>
-		<!-- role name : 역할 이름 -->
-		admin
+		<role-name> <!-- role name : 역할 이름 -->
+		  admin
 		</role-name>
-	</security-role>
-	<security-constraint>
-		<web-resource-collection>
-		<!-- web-resource-collection : 웹 자원에 대한 접근을 설정 -->
-			<web-resource-name>
-				<!-- 보안을 걸어줄 프로젝트(최상위 폴더) 명 -->
+  </security-role>
+  <security-constraint>
+	  <display-name>
+	     CarSharing
+	  </display-name>
+		<web-resource-collection> <!-- web-resource-collection : 웹 자원에 대한 접근을 설정 -->
+			<web-resource-name> <!-- 보안을 걸어줄 프로젝트(최상위 폴더) 명 -->
 				CarSharing
 			</web-resource-name>
-			<url-pattern>
-				<!-- 제약 조건을 걸어줄 파일 -->
+			<url-pattern> <!-- 제약 조건을 걸어줄 파일 -->
 				/view/NoticeBoard/noticeWriteForm.jsp
 			</url-pattern>
 		</web-resource-collection>
@@ -43,12 +42,11 @@
 			<description>
 				<!-- description : 설명이 필요하다면 여기에 작성 -->
 			</description>
-			<role-name>
-				<!-- role-name : 저 파일에 접근할 수 있는 역할이름 -->
+			<role-name> <!-- role-name : 저 파일에 접근할 수 있는 역할이름 -->
 				admin
 			</role-name>
 		</auth-constraint>
-	</security-constraint>
+  </security-constraint>
   
   
   <login-config>

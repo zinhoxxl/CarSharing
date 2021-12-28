@@ -14,6 +14,17 @@
 </style>
 </head>
 <body>
+<%
+   /*  session.setAttribute("sessionId", "admin");
+    String id = request.getParameter("id");
+    String sessionId = (String)session.getAttribute("sessionId");
+    if(!id.equals(sessionId)){
+    	out.print("<script>alert('관리자만 작성할수 있습니다');</script>");
+    	out.print("<script>location.href='login.jsp'</script>");
+    	//response.sendRedirect("login.jsp");
+    } */
+    session.setAttribute("sessionId", "admin");
+%>
 <jsp:include page="../main/menu.jsp"/>
 <div class="jumbotron" style="background-color: #ffffff; ">
    <div class="container">
