@@ -103,7 +103,7 @@ public class MemberDAO {
 	
 	
 	  // 로그인 체크
-	  public String login(String memberId, String password) {
+	public MemberDTO login(MemberDTO vo) {
 	    String name = null;
 	    Connection conn = null;
 	    PreparedStatement pstmt = null;
@@ -114,8 +114,8 @@ public class MemberDAO {
 	    try {
 		      conn=DBConnection.getConnection();
 			  pstmt = conn.prepareStatement(sql);
-		      pstmt.setString(1, memberId);
-		      pstmt.setString(2, password);
+		      pstmt.setString(1, vo.getMemberId());
+		      pstmt.setString(2, vo.getPassword());
 					
 		      rs = pstmt.executeQuery();
 		      if(rs.next()) {
@@ -131,7 +131,7 @@ public class MemberDAO {
 		 			  throw new RuntimeException(e.getMessage());
 		 		  }
 		 	  }
-		    return name;
+		    return vo;
 		  }
 	
 	

@@ -17,6 +17,7 @@ public class MemberDTO {
 	private String register_day;
 	
 	
+	
 	//getter, settere
 	public String getMemberId() {
 		return memberId;
