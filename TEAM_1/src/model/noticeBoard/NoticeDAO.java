@@ -1,6 +1,7 @@
 package model.noticeBoard;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -273,30 +274,24 @@ public class NoticeDAO {
 			Connection conn=null;
 			PreparedStatement pstmt=null;
 			String sql="delete from NoticeBoard where num=?";
-		 try {
-			    conn=DBConnection.getConnection();
-			    conn.setAutoCommit(false);//수동 transaction처리
-			    pstmt = conn.prepareStatement(sql);
-			    pstmt.setInt(1, num);
-			    pstmt.executeUpdate();
-			    conn.commit();//commit 처리
-		} catch (Exception e) {
-			 try {
-				conn.rollback(); //rollback 처리
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-			}
-			 System.out.println("에러:"+e);
-		}finally {
-			  try {
-				   conn.setAutoCommit(true);//자동 transaction으로 처리
-		         if(pstmt!=null) pstmt.close();
-				    if(conn!=null)conn.close();
-			  }catch(Exception e) {
-				  throw new RuntimeException(e.getMessage());
-			  }
-		 }
-			
-		}//deleteNotice()끝.
+			System.out.println("삭제 sql:"+sql);
+			try {
+		          //1.OracleDB 연결객체 생성
+		    	 conn = DBConnection.getConnection();
+		    	 pstmt = conn.prepareStatement(sql);
+		    	 //2. 바인딩변수 세팅
+		    	 pstmt.setInt(1, num);
+		    	 //update처리
+		    	 pstmt.executeUpdate();
+		    }catch(Exception e) {
+				  System.out.println("에러:"+e.getMessage());
+			  }finally {
+				  try {
+					    if(pstmt!=null) pstmt.close();    if(conn!=null)conn.close();
+				  }catch(Exception e) {
+					  throw new RuntimeException(e.getMessage());
+				  }
+			  } 	
+		}//deleteBoard() 끝.
 	
 }
