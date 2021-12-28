@@ -16,12 +16,13 @@ public class NoticeWriteForm implements MainCommand{
 	       String sessionId=(String)session.getAttribute("sessionId");
 	      //로그인 아이디가 없으면 로그인 페이지로 이동 처리
 	      if(sessionId==null || "".equals(sessionId)) {
-	    	   response.sendRedirect("./member/loginMember.jsp");
+	    	   response.sendRedirect("./view/member/login.jsp");
 	    	   return null;
 	      }
        //로그인 후 게시글 등록 페이지로 이동했는지, 로그인 한 작성자 이름 얻기
 	       requestLoginName(request); 
-		return "./view/NoticeBoard/noticeWriteForm.jsp";
+//		return "./view/NoticeBoard/noticeWriteForm.jsp";
+	       return "/NoticeWriteForm.car";
 	}
 	
 	//인증된 사용자명 얻기

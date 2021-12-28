@@ -9,7 +9,7 @@ function checkForm(){
 	if(${sessionScope.sessionId==null}){
 		$('#myModal').modal('show');
 	}else{
-		location.href="./NoticeWriteForm.car?id=${sessionScope.sessionId}";
+		location.href="/NoticeWriteForm.car?id=${sessionScope.sessionId}";
 	}	
 }
 </script>

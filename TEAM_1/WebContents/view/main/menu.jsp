@@ -21,13 +21,13 @@
   	<ul class="navbar-nav mr-auto">
   	   <c:choose>
   	     <c:when test="${empty sessionId}"><%-- ${sessionId==null} --%>
-  	        <li class="nav-item"><a class="nav-link" href="<c:url value="./member/login.jsp"/>">로그인</a></li>
+  	        <li class="nav-item"><a class="nav-link" href="<c:url value="/view/main/login.jsp"/>">로그인</a></li>
   	        <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">회원가입</a></li>
   	        
   	     </c:when>
   	     <c:otherwise>
   	       <li style="padding-top:7px; color:white;">[${sessionId}님]</li>
-  	       <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">로그아웃</a></li>
+  	       <li class="nav-item"><a class="nav-link" href="<c:url value="/view/main/logout.jsp"/>">로그아웃</a></li>
   	       <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">회원관리</a></li>
   	     </c:otherwise>
   	  </c:choose>

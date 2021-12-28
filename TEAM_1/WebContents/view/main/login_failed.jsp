@@ -6,7 +6,7 @@
 <title>internal server error</title>
 </head>
 <body>
- <jsp:include page="./main/menu.jsp"/>
+ <jsp:include page="./menu.jsp"/>
  <div class="jumbortron">
    <div class="container">
    	 <h2 class="alert alert-danger">서버 내부 오류 발생. </h2>
@@ -17,6 +17,6 @@
     <p><%=request.getRequestURL() %><!-- 요청페이지 경로명  -->
     <p><a href="products.jsp" class="btn btn-secondary">상품 목록 &raquo;</a>
  </div>
-<jsp:include page="./main/footer.jsp"/> 
+<jsp:include page="./footer.jsp"/> 
 </body>
 </html>
