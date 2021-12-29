@@ -5,13 +5,25 @@
 <!DOCTYPE html><html><head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gothic+A1&family=Nanum+Pen+Script&family=Public+Sans:ital,wght@1,900&display=swap');
+
+    div.jumbotron {
+        font-family: 'Do Hyeon', sans-serif;
+    }
+    h3.form-signin-heading {
+        font-family: 'Public Sans', sans-serif;
+    }
+</style>
 <title>Insert title here</title>
 </head>
 <body>
 <jsp:include page="../main/menu.jsp"/>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #e6ffff; text-align: center;">
 	<div class="container">
 	    <h1 class="display-3">로그인</h1>
+	    <h4>방문해주셔서 감사합니다</h4>
 	</div>
 </div>
  <div class="container" align="center">
@@ -34,7 +46,8 @@
              <label for="inputPassword" class="sr-only">Password</label>
              <input type="password" class="form-control" placeholder="Password" name='password' required>
           </div>
-          <button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+          <button class="btn btn btn-lg btn-success btn-block" type="submit" 
+                  style="font-family: 'Do Hyeon', sans-serif;">로그인</button>
       </form>
   </div>
  </div>
