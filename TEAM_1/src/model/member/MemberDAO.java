@@ -2,6 +2,7 @@ package model.member;
 
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,7 +72,7 @@ public class MemberDAO {
 	
 	
 	//아이디 중복 확인 - 중복된 아이디가 없으면 true(ok), 있으면 false (fail)
-	public boolean checkDuplicatedId(String id) throws SQLException {
+	public boolean checkDuplicatedId(String memberId) throws SQLException {
 		boolean flag = true;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -82,8 +83,8 @@ public class MemberDAO {
 		try {
 			conn=DBConnection.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
+			pstmt.setString(1, memberId);
+			rs = pstmt.executeQuery(); 
 			if (rs.next() && rs.getInt(1) > 0) {
 				flag = false;
 			}

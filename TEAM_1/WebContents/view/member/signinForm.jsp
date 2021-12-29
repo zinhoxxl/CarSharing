@@ -74,8 +74,8 @@ function idChk(){
 	 document.newMember.id.focus();
 	 return;
  }else{
-	 alert("가입 가능한 id입니다.");
-     window.close();
+  /* 팝업창 열기 window.open(페이지); <-현재페이지는 opener임. */
+  window.open('./view/member/idCheck.jsp?id='+id);
  }
 }
 </script>
@@ -140,7 +140,7 @@ function confirm(){
               <div class="col-sm-3">
                    <input name="id" type="text" class="form-control" placeholder="id" required>
                     <input type="button" value="아이디 중복검사"  class="btn btn-info"
-                           style="font-family: 'Do Hyeon', sans-serif;" onclick="location.href=''">
+                           style="font-family: 'Do Hyeon', sans-serif;" onclick="idChk()">
               </div>
         </div>
         <hr class="container">
