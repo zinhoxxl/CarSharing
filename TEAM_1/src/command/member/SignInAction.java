@@ -12,7 +12,7 @@ public class SignInAction implements MainCommand{
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		String id = request.getParameter("memberId");
+		String memberId = request.getParameter("memberId");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String gender = request.getParameter("gender");
@@ -26,25 +26,25 @@ public class SignInAction implements MainCommand{
 		String extraAddress = request.getParameter("extraAddress");
 		String register_day = request.getParameter("register_day");
 		
-		MemberDTO member = new MemberDTO();
-		member.setMemberId(id);
-		member.setPassword(password);
-		member.setName(name);
-		member.setGender(gender);
-		member.setPhone(phone);
-		member.setBirth(birth);
-		member.setMail(mail);
-		member.setZipcode(zipcode);
-		member.setRoadAddress(roadAddress);
-		member.setJibunAddress(jibunAddress);
-		member.setDetailAddress(detailAddress);
-		member.setExtraAddress(extraAddress);
-		member.setRegister_day(register_day);
+		MemberDTO vo = new MemberDTO();
+		vo.setMemberId(memberId);
+		vo.setPassword(password);
+		vo.setName(name);
+		vo.setGender(gender);
+		vo.setPhone(phone);
+		vo.setBirth(birth);
+		vo.setMail(mail);
+		vo.setZipcode(zipcode);
+		vo.setRoadAddress(roadAddress);
+		vo.setJibunAddress(jibunAddress);
+		vo.setDetailAddress(detailAddress);
+		vo.setExtraAddress(extraAddress);
+		vo.setRegister_day(register_day);
 		
 		//VO 존재 유무 확인
-		if (member != null) 
+		if (vo != null) 
 			//모델과 연동하여 DB에 정보 INSERT
-			MemberDAO.getInstance().signIn(member);
+			MemberDAO.getInstance().signIn(vo);
 		
 		return "/mainViewProcess.car";
 	

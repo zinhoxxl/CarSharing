@@ -16,7 +16,14 @@ public class MemberDTO {
 	private String extraAddress;
 	private String register_day;
 	
+	public MemberDTO() {
+		super();
+	}
 	
+	public MemberDTO(String memberId, String password){
+		this.memberId = memberId;
+		this.password = password;
+	}
 	
 	//getter, settere
 	public String getMemberId() {
