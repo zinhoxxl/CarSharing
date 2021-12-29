@@ -27,8 +27,12 @@ public class LoginAction implements MainCommand{
 			url = "redirect:/view/main/welcome.jsp";
 			//세션 생성
 			HttpSession session = request.getSession();
+			String sessionId=(String)session.getAttribute("sessionId");
+			sessionId = request.getParameter("sessionId");
+			MemberDAO dao = MemberDAO.getInstance();
+			request.setAttribute("memberId", sessionId);
 			//세션에 정보 할당 - View에 정보 공유
-			session.setAttribute("cvo", cvo);
+			session.setAttribute("memberId", cvo);
 		}
 		
 		return url;

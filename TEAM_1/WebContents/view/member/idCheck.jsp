@@ -16,12 +16,12 @@
 %>
 <script>
 alert('이미 존재하는 id입니다.');
- opener.newMember.id.value='';
- opener.newMember.id.focus();
+ opener.newMember.memberId.value='';
+ opener.newMember.memberId.focus();
  self.close();/*자신을 닫는 함수  */
 </script>
 <%}else{%>
-<script>alert("가입 가능한 id입니다.");
+<script>alert("가입 가능한 ID입니다.");
         window.close();
 </script>
 <%  }

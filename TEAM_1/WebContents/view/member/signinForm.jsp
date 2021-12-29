@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html><html><head>
 <script>
+function selectDomain(obj){
+	document.newMember.mail2.value=obj.value;
+	if(obj.value=="") document.newMember.mail2.focus();
+}
+</script> 
+<script>
 function checkForm(){
  if(document.newMember.password.value!=document.newMember.password_confirm.value){
 	 alert("비밀번호와 비밀번호확인 값이 서로 다릅니다!");
@@ -68,14 +74,14 @@ function checkForm(){
 <script>
 /* id check function() */
 function idChk(){
- var id=document.newMember.id.value;
- if(id.length==0){
+ var memberId=document.newMember.memberId.value;
+ if(memberId.length==0){
 	 alert("아이디를 입력하세요");
-	 document.newMember.id.focus();
+	 document.newMember.memberId.focus();
 	 return;
  }else{
   /* 팝업창 열기 window.open(페이지); <-현재페이지는 opener임. */
-  window.open('./view/member/idCheck.jsp?id='+id);
+  window.open('./view/member/idCheck.jsp?memberId='+memberId);
  }
 }
 </script>
@@ -133,12 +139,12 @@ function confirm(){
   <br>
   <br>
   <div class="container">
-    <form name="newMember" class="form-horizontal" action="/SignInAction.car" 
+    <form name="newMember" class="form-horizontal" action="./SignInAction.car" 
                 method="post" onsubmit="return checkForm()"> 
         <div class="form-group row">
               <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:20px;">아이디</h5>
               <div class="col-sm-3">
-                   <input name="id" type="text" class="form-control" placeholder="id" required>
+                   <input name="memberId" type="text" class="form-control" placeholder="id" required>
                     <input type="button" value="아이디 중복검사"  class="btn btn-info"
                            style="font-family: 'Do Hyeon', sans-serif;" onclick="idChk()">
               </div>
@@ -221,7 +227,8 @@ function confirm(){
              <div class="col-sm-10" style="margin-top:3px;">
                 <input type="text" name="mail1" maxlength="50" required>@
                 <input type="text" name="mail2" maxlength="50" required>
-                 <select name="mail2_select" onchange="selectDomain(this)" style="font-family: 'Do Hyeon', sans-serif;">
+                 <select name="mail2_select" onchange="selectDomain(this)" 
+                         style="font-family: 'Do Hyeon', sans-serif;">
                     <option disabled="disabled" selected="selected">선택</option>
                     <option>naver.com</option>
                     <option>daum.net</option>
@@ -279,29 +286,7 @@ function confirm(){
           </div>
        </div>
     </form>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Email비밀번호:</label>
-            <input type="password" class="form-control" id="Emailpassword" name="emailPassword">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="sendEmail()">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>    
+  
     
   </div>
   <hr class="container">

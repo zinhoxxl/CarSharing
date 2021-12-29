@@ -32,7 +32,7 @@ public class MemberDAO {
 	public void signIn(MemberDTO member) {
 		  Connection conn=null;
 		  PreparedStatement pstmt=null;
-		  String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now())";
+		  String sql = "INSERT INTO member VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			//db연결

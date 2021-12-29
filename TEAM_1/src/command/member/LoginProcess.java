@@ -14,9 +14,9 @@ public class LoginProcess implements MainCommand{
 	
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String id = request.getParameter("id");
+		String memberId = request.getParameter("memberId");
 		HttpSession session = request.getSession();
-		session.setAttribute("sessionId", id);
+		session.setAttribute("sessionId", memberId);
        return "/view/member/loginForm.jsp";
 	}
 }
