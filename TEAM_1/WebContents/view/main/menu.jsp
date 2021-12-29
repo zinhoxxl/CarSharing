@@ -33,7 +33,7 @@
   	  </c:choose>
   	  <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">차량관리</a> <!--sessionId가 admin일때 메뉴활성화-->
   	  <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">렌트카 예약</a>
-  	  <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">Q&A</a>
+  	  <li class="nav-item"><a class="nav-link" href="<c:url value="/QnABoardListProcess.car"/>">Q&A</a>
  	  <li class="nav-item"><a class="nav-link" href="<c:url value="/NoticeListAction.car"/>">공지사항</a>
   	</ul>
   </div>
