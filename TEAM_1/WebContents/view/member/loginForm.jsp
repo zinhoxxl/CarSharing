@@ -48,6 +48,8 @@
           </div>
           <button class="btn btn btn-lg btn-success btn-block" type="submit" 
                   style="font-family: 'Do Hyeon', sans-serif;">로그인</button>
+          <button class="btn btn btn-lg btn-warning btn-block" type="button" 
+                  style="font-family: 'Do Hyeon', sans-serif;" onclick="location.href='addMember.jsp'">회원가입</button>   
       </form>
   </div>
  </div>

@@ -2,6 +2,5 @@
 <%
 
 	session.invalidate();
-	//response.sendRedirect("/CarSharing/mainViewProcess.car");
 	response.sendRedirect("../member/loginForm.jsp");
 %>
