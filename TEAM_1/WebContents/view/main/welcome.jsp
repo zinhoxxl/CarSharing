@@ -46,15 +46,20 @@
 <jsp:include page="./menu.jsp"/>
 <div class="jumbotron" style="background-color: #ffffff; ">
   <div class="container">
-  	<h1 class="display-3">중앙렌트카</h1>
+  	<h1 class="display-3" style="font-family: 'Public Sans', sans-serif;">CarSharing</h1><h3 style="padding-left: 255px; ">카셰어링렌트카</h3>
   </div>
 </div>  
 <div class="container">
+
+<hr>
+<br>
   <div class="text-center">
      <h3>중앙렌트카 홈페이지에 방문해주셔서 감사드립니다.</h3>
     </div>
+    
   <div class="text-center">
  	<br>
+ 	
   </div>
   
   <!-- 메인 페이지 이미지 삽입 영역 -->
@@ -77,7 +82,7 @@
       </div>
       <div class="carousel-caption">
         <h3 class="h3-responsive">CarSharing을 방문해주셔서 감사합니다</h3>
-        <p>여행에 함께 할 차를 구경해보세요</p>
+        <p>고객님의 여행에 함께 동행할 차를 구경해보세요</p>
       </div>
     </div>
     <div class="carousel-item">

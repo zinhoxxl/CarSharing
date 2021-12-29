@@ -74,8 +74,8 @@ function idChk(){
 	 document.newMember.id.focus();
 	 return;
  }else{
-  /* 팝업창 열기 window.open(페이지); <-현재페이지는 opener임. */
-  window.open('idCheck.jsp?id='+id);
+	 alert("가입 가능한 id입니다.");
+     window.close();
  }
 }
 </script>
@@ -140,7 +140,7 @@ function confirm(){
               <div class="col-sm-3">
                    <input name="id" type="text" class="form-control" placeholder="id" required>
                     <input type="button" value="아이디 중복검사"  class="btn btn-info"
-                           style="font-family: 'Do Hyeon', sans-serif;" onclick="idChk()">
+                           style="font-family: 'Do Hyeon', sans-serif;" onclick="location.href=''">
               </div>
         </div>
         <hr class="container">
@@ -177,7 +177,21 @@ function confirm(){
               <label class="form-check-label" for="inlineRadio2">여자</label>
               </div>
         </div>
-
+        <hr class="container">
+          <div class="form-group row">
+         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:14px;">전화번호</h5>
+         <div class="col-sm-5" style="margin-top:10px;">
+               <select name="phone1" required>
+		              <option value="010" selected>010</option>
+		              <option value="011">011</option>
+		              <option value="016">016</option>
+		              <option value="017">017</option>
+		              <option value="019">019</option>
+		           </select>
+				- <input maxlength="4" size="4" name="phone2" required> -
+				<input maxlength="4" size="4" name="phone3" required>
+         </div>
+       </div>
        <hr class="container">
         <div class="form-group row">
               <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:5px;">생일</h5>
@@ -218,21 +232,7 @@ function confirm(){
              </div>
        </div>
        
-        <hr class="container">
-       <div class="form-group row">
-         <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:14px;">전화번호</h5>
-         <div class="col-sm-5" style="margin-top:10px;">
-               <select name="phone1" required>
-		              <option value="010" selected>010</option>
-		              <option value="011">011</option>
-		              <option value="016">016</option>
-		              <option value="017">017</option>
-		              <option value="019">019</option>
-		           </select>
-				- <input maxlength="4" size="4" name="phone2" required> -
-				<input maxlength="4" size="4" name="phone3" required>
-         </div>
-       </div>
+        
   <div class="form-group row">
   <hr class="container">
              <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:8px;">우편번호</h5>

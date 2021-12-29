@@ -33,5 +33,4 @@ public class LoginAction implements MainCommand{
 		
 		return url;
 	}
-
 }
