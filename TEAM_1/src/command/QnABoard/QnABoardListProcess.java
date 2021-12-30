@@ -20,12 +20,10 @@ public class QnABoardListProcess implements MainCommand{
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		//sesssionId가 없음으로 임시로 생성
-		if(request.getAttribute("sessionId")==null) {
-			String id = request.getParameter("memberId");
-			HttpSession session = request.getSession();
-			session.setAttribute("sessionId", id);
-		}
-		
+		HttpSession session = request.getSession();
+		String id = request.getParameter("memberId");
+		session.setAttribute("sessionId", id);
+
 		//등록된 글 목록 가져오기
 		//DB억세스 객체 생성
 		QnABoardDAO_org dao = QnABoardDAO_org.getInstance();

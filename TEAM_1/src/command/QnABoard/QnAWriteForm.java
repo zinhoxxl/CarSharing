@@ -24,7 +24,8 @@ public class QnAWriteForm implements MainCommand{
 		   request.setAttribute("ref",request.getParameter("ref"));
 		   request.setAttribute("re_step",request.getParameter("re_step"));
 		   request.setAttribute("re_level",request.getParameter("re_level"));
-		   request.setAttribute("writer", "임꺽정"); // 임시생성 writer
+		   request.setAttribute("writer", request.getParameter("writer"));// 임시생성 writer
+		   request.setAttribute("memberId", request.getParameter("memberId"));
 		     
 		    
 		return "/view/QnABoard/writeForm.jsp";
