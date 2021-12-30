@@ -23,7 +23,7 @@
 </div>
 <div class="container">
    <form name="newWrite" action="./QnAWriteProcess.car" class="form-horizontal" method="post">
-      <input name="writer" type="hidden" class="form-control" value="${writer}">
+      <input name="writer" type="hidden" class="form-control" value="${sessionId}">
       <input name="pageNum" type="hidden" value="${pageNum}">
       <input name="items" type="hidden" value="${items}">
       <input name="text" type="hidden" value="${text}">

@@ -25,7 +25,20 @@ public class MemberDTO {
 		this.password = password;
 	}
 	
-	//getter, settere
+	
+	
+	public MemberDTO(String memberId, String password, String name, String birth, String roadAddress,
+			String register_day) {
+		super();
+		this.memberId = memberId;
+		this.password = password;
+		this.name = name;
+		this.birth = birth;
+		this.roadAddress = roadAddress;
+		this.register_day = register_day;
+	}
+
+	//getter, setter
 	public String getMemberId() {
 		return memberId;
 	}

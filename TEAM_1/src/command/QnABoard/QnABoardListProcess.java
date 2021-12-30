@@ -21,8 +21,9 @@ public class QnABoardListProcess implements MainCommand{
 		
 		//sesssionId가 없음으로 임시로 생성
 		if(request.getAttribute("sessionId")==null) {
-		HttpSession session = request.getSession();
-		session.setAttribute("sessionId", "limggukjung");
+			String id = request.getParameter("memberId");
+			HttpSession session = request.getSession();
+			session.setAttribute("sessionId", id);
 		}
 		
 		//등록된 글 목록 가져오기
