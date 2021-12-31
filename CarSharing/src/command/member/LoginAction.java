@@ -22,9 +22,9 @@ public class LoginAction implements MainCommand{
 		MemberDTO cvo = MemberDAO.getInstance().login(vo);
 		
 		if (cvo == null) { //로그인 실패
-			url = "redirect:loginFail.jsp";
+			url = "forward:loginFail.jsp";
 		} else { //로그인 성공
-			url = "redirect:/view/main/welcome.jsp";
+			url = "forward:/view/main/welcome.jsp";
 			//세션 생성
 			HttpSession session = request.getSession();
 			String sessionId=(String)session.getAttribute("sessionId");
