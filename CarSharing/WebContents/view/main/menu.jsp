@@ -34,7 +34,6 @@
   	  <li class="nav-item"><a class="nav-link" href="<c:url value="#"/>">렌트카 예약</a>
   	  <li class="nav-item"><a class="nav-link" href="<c:url value="/QnABoardListProcess.car"/>">Q&A</a>
  	  <li class="nav-item"><a class="nav-link" href="<c:url value="/NoticeListAction.car"/>">공지사항</a>
- 	  <li class="nav-item"><a class="nav-link" href="<c:url value="/view/member/AdminRedirect.jsp"/>">관리자 로그인</a>
   	</ul>
   </div>
 </div>

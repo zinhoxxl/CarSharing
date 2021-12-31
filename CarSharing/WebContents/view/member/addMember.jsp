@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html><html><head>
 <script>
 function selectDomain(obj){
@@ -72,7 +73,6 @@ function checkForm(){
 }
 </script>
 <script>
-/* id check function() */
 function idChk(){
  var id=document.newMember.id.value;
  if(id.length==0){
@@ -145,8 +145,7 @@ function confirm(){
               <h5 class="col-sm-2 control-label" style="text-align: right; margin-top:20px;">아이디</h5>
               <div class="col-sm-3">
                    <input name="id" type="text" class="form-control" placeholder="id" required>
-                    <input type="button" value="아이디 중복검사"  class="btn btn-info"
-                           style="font-family: 'Do Hyeon', sans-serif;" onclick="idChk()">
+                    <input type="button" value="아이디 중복검사"  class="btn btn-info" onclick="idChk()">
               </div>
         </div>
         <hr class="container">

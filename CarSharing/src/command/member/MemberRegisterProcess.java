@@ -63,5 +63,6 @@ public class MemberRegisterProcess implements MainCommand{
 		
 		
 		return "/view/member/resultMember.jsp";
+		
 	}
 }
