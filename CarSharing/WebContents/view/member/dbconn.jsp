@@ -10,11 +10,14 @@
  try{
 	 String url="jdbc:mysql://localhost:3306/carsharing";
 	 String user="root";
-	 String password="root";
+	 String password="1234";
 	 
 	 Class.forName("com.mysql.cj.jdbc.Driver");
 	 conn=DriverManager.getConnection(url,user,password);
-	 if(conn==null){
+	 if(conn != null){
+		 System.out.println("성공");
+	 }
+	 else if(conn==null){
 		 Context init = new InitialContext();
 		 DataSource ds = 
 		     (DataSource)init.lookup("java:comp/env/jdbc/carsharing");

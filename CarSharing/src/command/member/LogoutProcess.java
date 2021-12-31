@@ -6,18 +6,15 @@ import javax.servlet.http.HttpSession;
 
 import command.MainCommand;
 
-public class LogoutAction implements MainCommand{
+public class LogoutProcess implements MainCommand{
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        
-		HttpSession session = request.getSession(false);
 		
-		//로그인 정보가 있으면 세션정보 초기화
-		if (session != null)
-			session.invalidate();
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
-		return "/mainLoginProcess.car";
+		return "/view/main/welcome.jsp";
 	}
 
 }

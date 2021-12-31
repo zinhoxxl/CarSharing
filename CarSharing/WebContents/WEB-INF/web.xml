@@ -2,13 +2,11 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>CarSharing</display-name>
   <welcome-file-list>
-    <welcome-file>welcome.jsp</welcome-file>
+    <welcome-file>./view/main/main.jsp</welcome-file>
   </welcome-file-list>
   
   <security-role>
-		<role-name> <!-- role name : 역할 이름 -->
-		  admin
-		</role-name>
+		<role-name>admin</role-name>
   </security-role>
   <security-constraint>
 	  <display-name>
@@ -21,34 +19,33 @@
 			<url-pattern> <!-- 제약 조건을 걸어줄 파일 -->
 				/view/NoticeBoard/noticeWriteForm.jsp
 			</url-pattern>
+			<http-method>get</http-method>
 		</web-resource-collection>
 		<auth-constraint>
 			<description>
 				<!-- description : 설명이 필요하다면 여기에 작성 -->
 			</description>
-			<role-name> <!-- role-name : 저 파일에 접근할 수 있는 역할이름 -->
-				admin
-			</role-name>
+			<role-name>admin</role-name>
 		</auth-constraint>
-  </security-constraint>
+  </security-constraint> 
   
   
   <login-config>
     <auth-method>FORM</auth-method>
     <form-login-config>
       <!-- 로그인 페이지 경로 -->
-      <form-login-page>/view/main/login.jsp</form-login-page>
+      <form-login-page>/view/member/adminLogin.jsp</form-login-page>
       <!-- 에러 날 경우 연결될 파일 -->
-      <form-error-page>/view/main/login_failed.jsp</form-error-page>
+      <form-error-page>/view/member/login_failed.jsp</form-error-page>
     </form-login-config>
   </login-config>
   <error-page>
     <error-code>404</error-code>
-    <location>/exceptionNoPage.jsp</location>
+    <location>/view/member/exceptionNoPage.jsp</location>
   </error-page>
   <error-page>
     <error-code>500</error-code>
-    <location>/exceptionServerErrorPage.jsp</location>
+    <location>/view/member/exceptionServerErrorPage.jsp</location>
   </error-page>
   <filter>
     <filter-name>LogFileFilter</filter-name>
